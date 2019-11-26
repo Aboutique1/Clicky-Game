@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+
+import Instructions from "./Instructions";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        This is the header
       </header>
+      <main className="instructions">This is the optional instructions (maybe delete this if you don't want to include it)</main>
+      <main className="playingCards">This is the main portion where the cards will go.</main>
+      <footer>This is the footer</footer>
     </div>
   );
 }
