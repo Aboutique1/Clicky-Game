@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 
 import Instructions from "./Instructions";
+import PlayingCards from "./PlayingCards";
 
 function App() {
   return (
@@ -9,8 +10,8 @@ function App() {
       <header className="App-header">
         This is the header
       </header>
-      <main className="instructions">This is the optional instructions (maybe delete this if you don't want to include it)</main>
-      <main className="playingCards">This is the main portion where the cards will go.</main>
+      <Instructions />
+      <PlayingCards />
       <footer>This is the footer</footer>
     </div>
   );
