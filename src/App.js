@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        This is the header
+        This is the header, it will show the score and highScore
       </header>
       <Instructions />
       <PlayingCards />
