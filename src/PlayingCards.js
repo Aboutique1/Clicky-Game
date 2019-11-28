@@ -64,7 +64,9 @@ class PlayingCards extends Component {
     constructor(props){
         super();
         this.state = {
-            cards: initialPlayingCards
+            cards: initialPlayingCards,
+            score: props.score,
+            topScore: props.topScore
         }
     }
     shuffleCards(cardsArray){
@@ -79,10 +81,16 @@ class PlayingCards extends Component {
         return cardsArray
     }
     resetCards(){
-        // this.setState({
-        //     cards: this.state.cards.map(card => {
-        //         return {...card, card.clicked:  false}})
-        // })
+        const newCards = this.state.cards.map(card => {
+            let resetCard = card;
+            resetCard.clicked = false;
+            return resetCard
+        });
+        this.setState({
+            cards: newCards,
+            score: 0
+        });
+        this.props.updateScore(0, this.state.topScore);
     }
     handleClick(id){
         console.log(id);
@@ -97,10 +105,16 @@ class PlayingCards extends Component {
                     this.resetCards();
                 } else {
                     //game continues, we need to increment the score
-
                     //we also need to update the clicked card as true
                     card.clicked = true; //update with a setState instead
-                    this.setState({cards: this.state.cards});
+                    const currentScore = this.state.score + 1;
+                    const isBestScore = currentScore > this.state.topScore;
+                    this.setState({
+                        cards: this.state.cards,
+                        score: currentScore,
+                        topScore: isBestScore ? currentScore : this.state.topScore
+                    });
+                    this.props.updateScore(currentScore, isBestScore ? currentScore : this.state.topScore);
                 }
             }
         })
@@ -116,8 +130,6 @@ class PlayingCards extends Component {
         })
         return (
             <main className="playingCards">{cards}</main>
-    
-    
         );
     }
     
