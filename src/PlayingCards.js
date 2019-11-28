@@ -9,6 +9,10 @@ import TheHuntington from './images/TheHuntington.jpg'
 import WestCovina from './images/WestCovina.jpg'
 import BelAir from './images/BelAir.jpg'
 import CatalinaIsland from './images/CatalinaIsland.jpg'
+import BeverlyHills from './images/BeverlyHills.jpg'
+import DowntownConcertHall from './images/DowntownConcertHall.jpg'
+import Hollywood from './images/Hollywood.jpg'
+import SunsetStrip from './images/SunsetStrip.jpg'
 
 // setup of the cards
 const initialPlayingCards = [
@@ -55,6 +59,26 @@ const initialPlayingCards = [
     {
         id: 9,
         image: CatalinaIsland,
+        clicked: false 
+    },
+    {
+        id: 10,
+        image: BeverlyHills,
+        clicked: false 
+    },
+    {
+        id: 11,
+        image: DowntownConcertHall,
+        clicked: false 
+    },
+    {
+        id: 12,
+        image: Hollywood,
+        clicked: false 
+    },
+    {
+        id: 13,
+        image: SunsetStrip,
         clicked: false 
     },
 
@@ -129,7 +153,9 @@ class PlayingCards extends Component {
             );
         })
         return (
-            <main className="playingCards">{cards}</main>
+            <main className={[...(this.props.error ? ['shake'] : []), "playingCards"].join(' ')}>
+                {cards}
+            </main>
         );
     }
     
